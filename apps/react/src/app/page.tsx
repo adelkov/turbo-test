@@ -3,6 +3,8 @@ import { api } from 'libs'
 export default async function Page() {
     const { data, error } = await api.nendoroid.skadi.get()
 
+    const res = await api.aron.get()
+
     if (error) return <h1>Something went wrong</h1>
 
     const { id, name, cover, type, license } = data
@@ -31,16 +33,10 @@ export default async function Page() {
                                 1px 1px 0 #000`
                             }}
                         >
-                            {id}
+                            {res.data}
                         </h4>
                     </div>
                 </header>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                    src={cover}
-                    alt={`${name} ${type}`}
-                    className="z-10 rounded-2xl drop-shadow-2xl object-fit object-contain"
-                />
             </article>
         </main>
     )

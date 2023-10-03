@@ -6,11 +6,12 @@ import { swagger } from '@elysiajs/swagger'
 const app = new Elysia()
     .use(cors())
     .use(swagger())
-    .use(
-        staticPlugin({
-            prefix: ''
-        })
-    )
+    // .use(
+    //     staticPlugin({
+    //         prefix: ''
+    //     })
+    // )
+    .get('/aron', () => 'ARON!')
     .get('/', () => 'Hello Elysia')
     .get('/nendoroid/skadi', () => ({
         id: 1895,
